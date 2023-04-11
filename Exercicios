@@ -1,0 +1,107 @@
+Questão 1) Leia as sentenças abaixo e assinale todas as VERDADEIRAS:
+( ) Métodos estáticos podem ser abstratos.
+( ) Construtores podem ser abstratos.
+(x) Classes abstratas podem ter construtores.
+( ) Métodos abstratos podem ser privativos.
+(x) Uma classe abstrata podem estender uma normal.
+(x) Posso ter uma classe abstrata sem nenhum método abstrato.
+
+
+
+Questão 2) Sobre as classes abstratas puras, assinale a alternativa correta:
+a) Uma classe abstrata é pura quando possui métodos abstratos; Não possui métodos
+concretos; e Não possui atributos (não-static).
+b) Uma classe abstrata é pura quando possui métodos abstratos e públicos; Pode possuir
+métodos concretos e abstratos; e Não possui atributos (não-static).
+c) Uma interface é uma classe abstrata pura; Pode possuir métodos concretos e abstratos.
+d) Uma interface é uma classe abstrata pura; Pode possuir métodos e atributos concretos e
+abstratos.
+e) Uma classe abstrata é pura quando possui métodos abstratos e públicos; É denominada
+Interface; Pode possuir métodos concretos e abstratos.
+
+Resposta Correta: LETRA A
+
+
+Questão 3) Suponha que você queira estabelecer uma relação de herança entre as classes A e B,
+onde A é superclasse de B. Deste modo, qual das alternativas abaixo É CORRETA?
+a) class B extends A {}
+b) class B inherits class A {}
+c) class B extends class A {}
+d) class B + class A {}
+e) class A extends class B {}
+
+Resposta Correta: LETRA A
+
+
+Questão 4) Analise o Diagrama de Classe abaixo e escreva o código do programa em Java.
+OBS: É necessário fazer o Main, instanciar os objetos Triângulo e Quadrado e chamar o método
+calcularArea() de cada um.
+
+
+public abstract class PoligonoRegular {
+    private int numLados;
+    private float tamLados;
+
+    public PoligonoRegular(int numLados, float tamLados) {
+        this.numLados = numLados;
+        this.tamLados = tamLados;
+    }
+
+    public float getTamLados() {
+        return tamLados;
+    }
+
+    public float calculaPerimetro(float l, float a){
+        return l+a;
+    }
+     abstract float calculaArea();
+}
+
+           ------/-----/------
+
+public class Quadrado extends PoligonoRegular{
+    public Quadrado(int numLados, float tamLados) {
+        super(numLados, tamLados);
+    }
+
+    @Override
+    float calculaArea() {
+        float area = (getTamLados() * getTamLados()) / 2;
+        return area;
+    }
+}
+
+       -------/-------/------
+       
+public class Triangulo extends PoligonoRegular{
+    public Triangulo(int numLados, float tamLados) {
+        super(numLados, tamLados);
+    }
+
+    @Override
+    float calculaArea() {
+        float area = (getTamLados() * getTamLados()) / 2;
+        return area;
+    }
+}
+
+      -------/------/--------
+public class Main {
+    public static void main(String[] args) {
+        Triangulo tri = new Triangulo(3,4);
+        Quadrado qua = new Quadrado(4, 4);
+
+        System.out.println(tri.calculaArea()+"m²");
+        System.out.println(qua.calculaArea()+"m²");
+    }
+}
+
+
+Questão 5) O que será exibido pelo programa abaixo?
+a) 1.
+b) 2.
+c) 0.
+d) Nada, pois há um erro de execução.
+e) Nada, pois há um erro de compilação
+
+
