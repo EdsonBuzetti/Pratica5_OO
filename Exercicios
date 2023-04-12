@@ -103,7 +103,7 @@ public class Main {
         float areaQuadrado = Q1.calculaArea();
 
         System.out.println("A area do Triangulo é:" + areaTriangulo);
-        System.out.println("A area do Triangulo é:" + areaQuadrado);
+    System.out.println("A area do Quadrado é:" + areaQuadrado);
 
     }
 }
