@@ -39,60 +39,72 @@ calcularArea() de cada um.
 
 
 public abstract class PoligonoRegular {
-    private int numLados;
-    private float tamLados;
+    private int numlado;
+    private float tamLado;
 
-    public PoligonoRegular(int numLados, float tamLados) {
-        this.numLados = numLados;
-        this.tamLados = tamLados;
+    public PoligonoRegular(int numlado, float tamLado) {
+        this.numlado = numlado;
+        this.tamLado = tamLado;
     }
 
-    public float getTamLados() {
-        return tamLados;
+   public float calculaPerimetro(){
+        return numlado*tamLado;
+   }
+   public abstract float calculaArea();
+
+    public int getNumlado() {
+        return numlado;
     }
 
-    public float calculaPerimetro(float l, float a){
-        return l+a;
+    public void setNumlado(int numlado) {
+        this.numlado = numlado;
     }
-     abstract float calculaArea();
+
+    public float getTamLado() {
+        return tamLado;
+    }
+
+    public void setTamLado(float tamLado) {
+        this.tamLado = tamLado;
+    }
 }
 
            ------/-----/------
 
-public class Quadrado extends PoligonoRegular{
-    public Quadrado(int numLados, float tamLados) {
-        super(numLados, tamLados);
+public class Quadrado extends PoligonoRegular {
+    public Quadrado(int numLado, float tamLado){
+        super(numLado, tamLado);
     }
 
-    @Override
-    float calculaArea() {
-        float area = (getTamLados() * getTamLados()) / 2;
-        return area;
+    public float calculaArea() {
+        return getTamLado()*getTamLado();
     }
 }
 
        -------/-------/------
        
-public class Triangulo extends PoligonoRegular{
-    public Triangulo(int numLados, float tamLados) {
-        super(numLados, tamLados);
+public class Triangulo extends PoligonoRegular {
+    public Triangulo(int numLado, float tamLado){
+        super(numLado, tamLado);
     }
 
-    @Override
-    float calculaArea() {
-        float area = (getTamLados() * getTamLados()) / 2;
-        return area;
+    public float calculaArea() {
+        return getTamLado()*getTamLado()/2;
     }
 }
 
       -------/------/--------
 public class Main {
     public static void main(String[] args) {
-        Triangulo tri = new Triangulo(3,4);
-        Quadrado qua = new Quadrado(4, 4);
+        Triangulo T1 = new Triangulo(3,4);
+        Quadrado Q1 = new Quadrado(4,4);
 
-        System.out.println(tri.calculaArea()+"m²");
-        System.out.println(qua.calculaArea()+"m²");
+        float areaTriangulo = T1.calculaArea();
+        float areaQuadrado = Q1.calculaArea();
+
+        System.out.println("A area do Triangulo é:" + areaTriangulo);
+        System.out.println("A area do Triangulo é:" + areaQuadrado);
+
     }
 }
 
@@ -123,14 +135,6 @@ disso, ela sobrescreve o método mostrar da classe Convite para incluir informa�
 A classe convidar e-mail estende a classe Convite e adiciona um atributo enderecoEmail para armazenar o endereço de email do destinatário. Além 
 disso, ela sobrescreve o método mostrar da classe Convite para incluir informações específicas para o envio por email.
 
-O que irá resultar do método main é:
+O que irá resultar do método main é que não ira compilar pois há um erro de execução.
 
-Convite enviado pelo contato: Michelle
-Mensagem: Olá, hoje tem prova
-Método de envio: WhatsApp
-Número de telefone: (31) 98543-0198
 
-Convite enviado pelo usuário: Michelle
-Mensagem: Olá, hoje tem prova
-Método de envio: Email
-Endereço de email: michellehanne.andrade@gmail.com
